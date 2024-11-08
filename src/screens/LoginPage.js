@@ -4,6 +4,7 @@ import {
   Text,
   View,
   SafeAreaView,
+  Pressable,
   StatusBar as RNStatusBar,
 } from "react-native";
 import { useState } from "react";
@@ -37,6 +38,13 @@ export default function LoginPage() {
         buttonColor="blue"
         pressedButtonColor="gray"
       />
+      <View style={styles.signUpOptions}>
+        <Pressable onPress={() => navigation.navigate("Login")}>
+          <Text style={styles.loginText}>
+            First time using Wordura? Create an account
+          </Text>
+        </Pressable>
+      </View>
     </SafeAreaView>
   );
 }
@@ -48,5 +56,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: RNStatusBar.currentHeight || 0,
+  },
+  signUpOptions: {
+    marginTop: 20,
+    alignItems: "center",
   },
 });
